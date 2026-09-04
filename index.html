@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Minha Coleção TCG</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <h1>🏴‍☠️ Minha Coleção TCG</h1>
+            <p>Controle suas cartas: tenho, falta ou repetidas.</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ESTATÍSTICAS -->
+        <section class="stats">
+
+            <div class="stat">
+                <span id="totalCards">0</span>
+                <small>Total de cartas</small>
+            </div>
+
+            <div class="stat green">
+                <span id="ownedCards">0</span>
+                <small>Tenho</small>
+            </div>
+
+            <div class="stat red">
+                <span id="missingCards">0</span>
+                <small>Faltam</small>
+            </div>
+
+            <div class="stat blue">
+                <span id="percentage">0%</span>
+                <small>Completo</small>
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESSO -->
+        <section class="progress-container">
+
+            <div class="progress-title">
+                <strong>Progresso da coleção</strong>
+                <span id="progressText">0 / 0</span>
+            </div>
+
+            <div class="progress">
+                <div id="progressBar"></div>
+            </div>
+
+        </section>
+
+
+        <!-- CONTROLES -->
+        <section class="controls">
+
+            <input
+                type="text"
+                id="search"
+                placeholder="🔎 Pesquisar carta..."
+            >
+
+            <select id="filter">
+                <option value="all">Todas</option>
+                <option value="owned">Tenho</option>
+                <option value="missing">Faltam</option>
+            </select>
+
+            <button onclick="openAddModal()" class="add-button">
+                ➕ Adicionar carta
+            </button>
+
+        </section>
+
+
+        <!-- CARTAS -->
+        <section id="cards" class="cards-container"></section>
+
+    </main>
+
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="close" onclick="closeModal()">×</button>
+
+            <h2>Adicionar carta</h2>
+
+            <label>Código</label>
+            <input
+                id="cardCode"
+                type="text"
+                placeholder="Ex: OP08-001"
+            >
+
+            <label>Nome</label>
+            <input
+                id="cardName"
+                type="text"
+                placeholder="Ex: Tony Tony Chopper"
+            >
+
+            <label>Coleção</label>
+            <input
+                id="cardSet"
+                type="text"
+                placeholder="Ex: Two Legends"
+            >
+
+            <label>Foto da carta</label>
+
+            <input
+                id="cardImage"
+                type="file"
+                accept="image/*"
+            >
+
+            <div id="preview"></div>
+
+            <button onclick="addCard()" class="save-button">
+                💾 Salvar carta
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script> 
+
+</body>
+</html>
